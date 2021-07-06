@@ -1,0 +1,30 @@
+{
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "extensions": [".js", ".ts", ".jsx", ".tsx"],
+          "paths": ["src"]
+        }
+      }
+    },
+    "env": {
+      "browser": true,
+      "es2020": true,
+      "jest": true
+    },
+    "extends": ["standard", "prettier"],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "ecmaVersion": 12,
+      "sourceType": "module"
+    },
+    "plugins": ["@typescript-eslint"],
+    "rules": {
+      "import/extensions": "off",
+      "no-console": "off",
+      "no-use-before-define": "off"
+    }
+  }
