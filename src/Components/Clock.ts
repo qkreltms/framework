@@ -1,37 +1,34 @@
-import Model from '../Models/Clock'
+import Model from '../models/Input'
 
 export default class Clock {
-  container: HTMLElement = null
-  model: Model
+  container: HTMLElement = document.createElement('div')
+  model: any
   requestRender: number = 0
-  renderFunc: () => {}
 
-  constructor(container) {
-    this.container = container
+  constructor() {
     this.model = new Model(this.onChanges.bind(this))
-    this.renderFunc = this.render.bind(this)
+    this.render = this.render.bind(this)
 
     setInterval(this.onTick.bind(this), 1000)
   }
 
   onChanges(property, oldValue, newValue) {
-      if(this.requestRender) {
-          cancelAnimationFrame(this.requestRender)
-      }
-      this.requestRender=requestAnimationFrame(this.renderFunc)
+    if (this.requestRender) {
+      cancelAnimationFrame(this.requestRender)
+    }
+    this.requestRender = requestAnimationFrame(this.render)
   }
 
   render() {
     const { hours, minutes, seconds } = this.model
-    const html = `
-        <div id="wrapper">
-            <span>${hours}</span>:
-            <span>${minutes}</span>:
-            <span>${seconds}</span>
-        </div>`
 
+    const html = `
+          <span>${hours}</span>:
+          <span>${minutes}</span>:
+          <span>${seconds}</span>
+       `
     this.container.innerHTML = html
-    this.requestRender = 0;
+    this.requestRender = 0
     console.log('render()')
   }
 

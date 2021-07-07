@@ -11,6 +11,9 @@ observer
 데이터 local storage에 저장하기
 MVP,MVC,MVVC
 
+requestAnimationFrame: setInterval + 성능 최적화 버전
+https://simsimjae.tistory.com/452
+
 서버 만들기
 크롤링 구현
 

@@ -1,3 +1,3 @@
-import Home from './Pages/Home'
+import Home from './components/Pages/Home'
 const app = document.getElementById('app')
-app.appendChild(new Home(app).container)
+app.appendChild(new Home().container)

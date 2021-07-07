@@ -1,8 +1,5 @@
+// TODO: 프로퍼티, 프로퍼티 타입 설정가능하도록
 export default class Model {
-  hours = 0
-  minutes = 0
-  seconds = 0
-
   constructor(callback: (property: any, oldValue: any, value: any) => void) {
     // @original, @handler
     const proxy = new Proxy(this, {
