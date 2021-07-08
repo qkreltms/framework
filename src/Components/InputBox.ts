@@ -1,9 +1,12 @@
 import Component from '../utils/components'
 
 export default class InputBox extends Component {
-  constructor() {
-    super()
+  Parent: any
+  constructor(Parent) {
+    super(Parent)
+    this.Parent = Parent
     this.onKeyDown = this.onKeyDown.bind(this)
+    this.model.str=''
   }
 
   componentDidMount() {
@@ -12,7 +15,6 @@ export default class InputBox extends Component {
 
   onKeyDown() {
     this.container.querySelector('input').addEventListener('keydown', (e) => {
-      // TODO: 키 입력시 바로 적용되게 하려면??
       if (e.key !== 'Enter') {
         return
       }

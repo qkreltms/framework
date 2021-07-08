@@ -1,25 +1,16 @@
-import Model from '../models/Input'
+import Component from '../utils/components'
 
-export default class Clock {
-  container: HTMLElement = document.createElement('div')
-  model: any
-  requestRender: number = 0
-
-  constructor() {
-    this.model = new Model(this.onChanges.bind(this))
-    this.render = this.render.bind(this)
-
+export default class Clock extends Component {
+  constructor(Parent) {
+    super(Parent)
+    this.template = this.template.bind(this)
     setInterval(this.onTick.bind(this), 1000)
+    this.model.hours = ''
+    this.model.minutes = ''
+    this.model.seconds = ''
   }
 
-  onChanges(property, oldValue, newValue) {
-    if (this.requestRender) {
-      cancelAnimationFrame(this.requestRender)
-    }
-    this.requestRender = requestAnimationFrame(this.render)
-  }
-
-  render() {
+  template() {
     const { hours, minutes, seconds } = this.model
 
     const html = `
@@ -27,14 +18,11 @@ export default class Clock {
           <span>${minutes}</span>:
           <span>${seconds}</span>
        `
-    this.container.innerHTML = html
-    this.requestRender = 0
-    console.log('render()')
+    return html
   }
 
   onTick() {
     const now = new Date()
-
     this.model.hours = now.getHours()
     this.model.minutes = now.getMinutes()
     this.model.seconds = now.getSeconds()

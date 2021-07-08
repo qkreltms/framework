@@ -1,18 +1,16 @@
 import Clock from '../../Clock'
 import InputBox from '../../InputBox'
+import Component from '../../../utils/components'
 
-class Home {
-  container = document.createElement('div')
-  constructor() {
+class Home extends Component {
+  constructor(Parent) {
+    super(Parent)
     this.container.setAttribute('class', 'wrapper')
-    this.render.bind(this)()
   }
 
   render() {
-    this.container.appendChild(new Clock().container)
-    this.container.appendChild(new Clock().container)
-    this.container.appendChild(new Clock().container)
-    this.container.appendChild(new InputBox().container)
+    this.container.appendChild(new Clock(this).container)
+    this.container.appendChild(new InputBox(this).container)
   }
 }
 
