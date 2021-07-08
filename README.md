@@ -25,3 +25,5 @@ https://simsimjae.tistory.com/452
 1.1. Child가 렌더링 발생 될 때 Parent도 렌더링 되야 함
 
 2. Input에서 입력 후 바로 text 출력시 기존 Input에 입력되어있는 내용 사라짐 해결하기
+
+3. Model에 동적 프로퍼티 type 주입하기
