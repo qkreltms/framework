@@ -1,3 +1,6 @@
+# 개인용 framework를 만들자.
+proxy 사용
+
 # TODOs
 
 가상돔
